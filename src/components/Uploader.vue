@@ -115,7 +115,7 @@ import ImageResize from "vue-image-upload-resize";
 import { setTimeout, setInterval, clearInterval } from "timers";
 import axios from "axios";
 
-let interval; // usado para parar as chamadas na api quando o job for inicializado
+let interval; // usado para parar as chamadas na api quando o job for finalizado
 
 export default {
   name: "Uploader",
