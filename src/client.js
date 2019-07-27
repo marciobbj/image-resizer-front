@@ -1,7 +1,7 @@
-const axios = require('axios');
+const axios = require("axios");
 
 var axiosInstance = axios.create({
-  baseURL: 'http://image-resizer-api',
+  baseURL: "http://localhost:8000"
   /* other custom settings */
 });
 
