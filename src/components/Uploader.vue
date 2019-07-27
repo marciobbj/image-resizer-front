@@ -111,9 +111,8 @@
 </template>
 
 <script>
-import ImageResize from "vue-image-upload-resize";
 import { setTimeout, setInterval, clearInterval } from "timers";
-import axios from "axios";
+import client from "../client";
 
 let interval; // usado para parar as chamadas na api quando o job for finalizado
 
@@ -151,7 +150,7 @@ export default {
       fileInput.click(); // quando o user clicar no botão "upload" esse codigo irá ativar a janela para upload do arquivo
     },
     async checkJob(job) {
-      let response = await axios.get(`http://localhost:8000/images/${job.id}/`);
+      let response = await client.get(`/images/${job.id}/`);
       if (response.data.job_done === true) {
         this.loading = false;
         this.isJobComplete = true;
@@ -176,8 +175,8 @@ export default {
       formData.append("height", this.height);
 
       const headers = { "Content-Type": "multipart/form-data" };
-      let response = await axios.post(
-        "http://localhost:8000/images/",
+      let response = await client.post(
+        "/images/",
         formData,
         { headers }
       );
