@@ -150,7 +150,7 @@ export default {
       fileInput.click(); // quando o user clicar no botão "upload" esse codigo irá ativar a janela para upload do arquivo
     },
     async checkJob(job) {
-      let response = await client.get(`/images/${job.id}/`);
+      let response = await client.get(`/api/images/${job.id}/`);
       if (response.data.job_done === true) {
         this.loading = false;
         this.isJobComplete = true;
@@ -176,7 +176,7 @@ export default {
 
       const headers = { "Content-Type": "multipart/form-data" };
       let response = await client.post(
-        "/images/",
+        "/api/images/",
         formData,
         { headers }
       );
