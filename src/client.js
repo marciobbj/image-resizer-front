@@ -1,7 +1,7 @@
 const axios = require("axios");
 
 var axiosInstance = axios.create({
-  baseURL: "http://localhost:8000"
+  baseURL: "http://ec2-3-86-86-236.compute-1.amazonaws.com"
   /* other custom settings */
 });
 
